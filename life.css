@@ -1,0 +1,49 @@
+/* ---- Crossfade Tab Images Custom CSS ---- */
+
+/* Set the display of all tab panes to block to enable opacity transitions */
+.home_highlights_tab-pane,
+.w--current {
+    display: block;
+}
+
+/* No-active tabs */
+
+/* Lower their z-index to keep the non-active tabs behind the active one */
+/* Set their opacity to 0 and a 0.3s delay */
+.home_highlights_tab-pane:not(.w--current) {
+    z-index: 0;
+    opacity: 0;
+    transition-delay: 0.3s;
+}
+
+/* Translate the content 20% from the top and set opacity to 0 to fade out */
+.home_highlights_tab-pane:not(.w--current) .home_highlights_content-wrapper {
+    transform: translate(0px, 20%);
+    transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+    transition-delay: 0s;
+    opacity: 0;
+}
+
+/* Active tab */
+
+/* Raise its z-index to bring it to the front */
+/* Set its opacity to 1 to make it visible */
+.home_highlights_tab-pane.w--tab-active {
+    z-index: 1;
+    opacity: 1;
+    transition-delay: 0s;
+}
+
+/* Remove the translation to bring the content to its original position */
+/* Set opacity to 1 to fade in the content */
+.home_highlights_tab-pane.w--tab-active .home_highlights_content-wrapper {
+    transform: none;
+    transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+    transition-delay: 0.4s;
+    opacity: 1;
+}
+
+/* Set the opacity transition for all tab panes to create a smooth fade effect */
+.home_highlights_tab-pane {
+    transition: opacity 0.6s ease-out;
+}
